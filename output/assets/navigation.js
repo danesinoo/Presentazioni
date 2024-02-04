@@ -18,6 +18,9 @@ class Navigation {
 		this.slide.notify()
 	}
 
+	/** # Change the current slide
+	* @param {HTMLElement} new_slide - The new slide to be shown
+	*/
 	change_slide(new_slide) {
 		this.actual = new_slide
 		this.slide.replace(new_slide)

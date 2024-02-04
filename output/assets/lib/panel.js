@@ -1,4 +1,8 @@
 class Panel {
+	/** # Creates a new panel
+	* @param {string} id - The id of the panel
+	* @returns {Panel} - The new panel
+	*/
 	constructor(id) {
 		this.id = id
 		this.content = document.createElement('section')
