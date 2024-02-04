@@ -12,3 +12,42 @@ docente fosse scritto in java. Non ho investigato molto quest'ultimo, mi sono
 solo ispirato all'interfaccia grafica. L'idea è unire le due cose (mi sembra che
 anche slides di obsidian abbia i keybinding di vim, ma non è l'unica cosa che
 copio dalle diapositive del mio professore).
+
+## Funzionamento generale:
+Il programma prende in input una cartella contenente file Markdown e li 
+trasforma in pagine HTML. Ogni sezione Markdown del tipo header (indicata da #, 
+##, ####, ecc.) diventa una diapositiva nella pagina HTML risultante. Il 
+contenuto sotto ogni header costituisce il contenuto della diapositiva.
+
+## Struttura delle diapositive:
+- Ogni diapositiva ha uno spazio predefinito per il titolo e uno per il 
+contenuto.
+- Il contenuto viene ridimensionato utilizzando il CSS `scale` per adattarsi 
+allo spazio dedicato.
+- Le diapositive sono indicate da sottili barre verticali ai lati della pagina 
+HTML, che si estendono o si restringono a seconda della presenza di diapositive 
+nelle direzioni indicate.
+
+## Navigazione tra le diapositive:
+- La navigazione può avvenire tramite le barre verticali o tramite le vim 
+motions (h, j, k, l).
+
+## Finestra dei contenuti/commenti:
+- Premendo "c", si apre la finestra dei contenuti/commenti.
+- Questa sezione può contenere informazioni dettagliate, riferimenti o 
+spiegazioni aggiuntive.
+- I commenti iniziano con "---" e terminano con "---".
+- Premendo nuovamente "c", la finestra si chiude.
+
+## Importazione di file:
+- Con il comando `\import[[path]]`, il testo "path" viene sostituito con il 
+contenuto del file al percorso specificato (relativo alla cartella di input).
+
+## Avvio del programma:
+- Il programma si avvia eseguendo il suo eseguibile seguito da due flag:
+  - `-s path/to/source/directory` specifica la cartella di input.
+  - `-o path/to/output/directory` specifica la cartella di output.
+
+## Suggerimento:
+- È consigliabile copiare la cartella "assets" che contiene i file CSS e 
+JavaScript necessari per rendere le pagine HTML dinamiche come descritto sopra.
