@@ -24,8 +24,8 @@ contenuto sotto ogni header costituisce il contenuto della diapositiva.
 contenuto.
 - Il contenuto viene ridimensionato utilizzando il CSS `scale` per adattarsi 
 allo spazio dedicato.
-- Le diapositive sono indicate da sottili barre verticali ai lati della pagina 
-HTML, che si estendono o si restringono a seconda della presenza di diapositive 
+- Le diapositive sono indicate da sottili barre verticali ai bordi della pagina 
+HTML, che sono presenti o meno a seconda della presenza di diapositive 
 nelle direzioni indicate.
 
 ## Navigazione tra le diapositive:

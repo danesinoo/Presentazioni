@@ -73,7 +73,10 @@ fn imports(content: &str, src: &PathBuf) -> String {
 
     for cap in re.captures_iter(content) {
         let path = src.join(&cap[1]);
-        let imported = fs::read_to_string(&path).unwrap();
+        let imported = match fs::read_to_string(&path) {
+            Ok(content) => content,
+            Err(_) => format!("\\import[[{}]]", &cap[1]),
+        };
         out = out.replace(&cap[0], &imported);
     }
     out

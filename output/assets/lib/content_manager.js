@@ -38,8 +38,8 @@ class ContentManager {
 	scale() {
 		let element_w = Array.from(this.content.children)
 			.map(child => child.clientWidth)
-			.reduce((acc, w) => Math.max(acc, w))
-		let element_h = this.content.clientHeight
+			.reduce((acc, w) => Math.max(acc, w), 1)
+		let element_h = this.content.clientHeight + 1
 
 		let scale_x = this.width() / element_w * this.max_width()
 		let scale_y = this.height() / element_h * this.max_height()

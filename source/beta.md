@@ -1,85 +1,67 @@
-# 1 Section
+# Presentazioni
 
-content section 1
-
-```ts
-let some_var = invented_fn()
-```
-
-$$ \rightarrow \forall x \in \mathbb{R} $$
+clicking on "c" make the comment section appear!
 
 ---
 
-\import[[prova.md]]
+# Slide navigation:
+
+Navigation can occur via the vertical bars or via Vim motions (h, j, k, l).
 
 ---
 
-## 1.1 subsection
+## How does it work?
 
-content subsection 1.1
-- something more articulated
-- like a bullet list
-- I wonder
-- will this work?
-- will this work?
-- something more articulated
-- like a bullet list
-- I wonder
-- will this work?
-- something more articulated
-- like a bullet list
-- I wonder
-- will this work?
-- will this work?
-- something more articulated
-- like a bullet list
-- I wonder
-- will this work?
+- .md into .hmtl
+- headers (#, ##, ...) into slides
 
 ---
 
-# 1.1 Comment
-
-content comment subsection 1
-
-## 1.1 Comment
-
-still a comment
+\import[[how_does_it_work.md]]
 
 ---
 
-### 1.1.1 subsubsection
+## Slides structure
 
-content subsubsection 1.1.1
-
----
-
-# 1.1.1 Comment
-
-content comment subsubsection 1
+- title
+- content
 
 ---
 
-## 1.2 subsection
+## Slide Structure:
 
-content subsection 1.2
+Each slide has a predefined space for the title and one for the content.
+The content is resized using CSS scale to fit the dedicated space.
+Slides are indicated by thin vertical bars at the edges of the HTML page, which 
+appear or disappear depending on the presence of slides in the indicated 
+directions.
 
-### 1.2.1 subsubsection
+---
 
-content subsubsection 1.1.1
+## Comments
 
-# 2 section
+---
 
-content section 2
+## Content/Comments Window:
 
-## 2.1 subsection
+- Pressing ``c`` toggles the content/comments window.
+- This section can contain detailed information, references, or additional 
+explanations.
+- Comments start with ``---`` and end with ``---``.
 
-content subsection 2.1
+---
 
-## 2.2 subsection
+## Import
 
-content subsection 2.2
+- you can even import some file
+- I advice to use this to split the presentation and the comments
+- ``\import[[path/to/import/file.md]]``
 
-### 2.2.1 subsubsection
+\import[[import.md]]
 
-content subsubsection 2.2.1
+# About this program
+
+- obsidian slides
+- my professors program
+
+\import[[inspiration.md]]
