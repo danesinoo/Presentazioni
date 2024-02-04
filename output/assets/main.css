@@ -1,0 +1,155 @@
+:root {
+	--background-color: #24283b;
+	--text-color: #a9b1d6;
+	--text-align: center;
+	--clickable-area-color: rgba(16, 18, 27, 0.5);
+	--clickable-area-hover-color: rgba(255, 134, 42, 1);
+	--margin-color: #1a1d2b;
+}
+
+body {
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    width: 100vw; /* Take up 100% of the viewport width */
+    height: 99vh; /* Take up 100% of the viewport height */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-family: 'Arial', sans-serif;
+	overflow: hidden;
+}
+
+#slide {
+	flex: 1;
+	height: 100%; /* Altezza slide */
+	width: 98%; /* Larghezza slide */
+	margin: 0 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+	overflow: hidden;
+}
+
+#slide h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+#slide #title {
+	margin: 10% 10% 5% 10%;
+	max-height: 15%;
+	max-width: 80%;
+    display: flex;
+    justify-content: center; /* Centrato orizzontalmente */
+    align-items: center; /* Centrato verticalmente */
+}
+
+#slide #content {
+	margin: auto; /* Margine contenuto */
+	max-height: 60%; /* Altezza contenuto */
+	max-width: 80%; /* Larghezza contenuto */
+    display: flex;
+    align-items: center; /* Allineato a sinistra */
+    justify-content: center; /* Centrato orizzontalmente */
+	flex-direction: column;
+	overflow: hidden;
+	font-size: 0.1em;
+}
+
+#slide #content > * {
+	line-height: 1.5;
+}
+
+#comment {
+	width: 98%;
+	flex: 1;
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	overflow-y: auto;
+	border-left: 2px solid var(--margin-color);
+}
+
+#comment > * {
+	margin: 0 5% 0 5%;
+	line-height: 1.5;
+	width: 80%;
+}
+
+#comment > *:last-child {
+	margin-bottom: 10%;
+}
+
+#comment > *:first-child {
+	margin-top: 10%;
+}
+
+#comment h1 {
+	padding: 1em 0 0.5em 0.5em;
+	font-size: 3em;
+}
+
+#comment h2 {
+	padding: 0.5em 0 0.5em 0.5em;
+	font-size: 2.5em;
+}
+
+#comment h3 {
+	padding: 0.5em 0 0.5em 0.5em;
+	font-size: 2em;
+}
+
+#comment h4 {
+	font-size: 1.5em;
+}
+
+#comment code {
+	background-color: rgba(var(--background-color), 0.5);
+}
+
+div {
+	display: none;
+}
+
+.clickable-area {
+	position: fixed;
+	z-index: 100;
+	background-color: var(--clickable-area-color);
+	border-radius: 10px;
+}
+
+#top {
+	top: 0;
+	left: 10%;
+	width: 80%;
+	height: 7px;
+}
+
+#bottom {
+	bottom: 0;
+	left: 10%;
+	width: 80%;
+	height: 7px;
+}
+
+#right {
+	top: 10%;
+	right: 0%;
+	width: 7px;
+	height: 80%;
+}
+
+#left {
+	top: 10%;
+	left: 0;
+	width: 7px;
+	height: 80%;
+}
+
+.clickable-area:hover {
+	background-color: var(--clickable-area-hover-color);
+}
+
