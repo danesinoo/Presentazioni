@@ -5,6 +5,7 @@
 	--clickable-area-color: rgba(16, 18, 27, 0.5);
 	--clickable-area-hover-color: rgba(255, 134, 42, 1);
 	--margin-color: #1a1d2b;
+	--decorations-width: 14px;
 }
 
 body {
@@ -122,30 +123,30 @@ div {
 }
 
 #top {
-	top: 0;
+	top: 5px;
 	left: 10%;
 	width: 80%;
-	height: 7px;
+	height: var(--decorations-width);
 }
 
 #bottom {
-	bottom: 0;
+	bottom: 5px;
 	left: 10%;
 	width: 80%;
-	height: 7px;
+	height: var(--decorations-width);
 }
 
 #right {
 	top: 10%;
-	right: 0%;
-	width: 7px;
+	right: 5px;
+	width: var(--decorations-width);
 	height: 80%;
 }
 
 #left {
 	top: 10%;
-	left: 0;
-	width: 7px;
+	left: 5px;
+	width: var(--decorations-width);
 	height: 80%;
 }
 
