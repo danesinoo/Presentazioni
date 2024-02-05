@@ -57,7 +57,6 @@ fn get_input() -> Result<(PathBuf, PathBuf), io::Error> {
 }
 
 // return the list of files contained in the source folder
-// and recursively its subfolders
 pub fn files_walker(source_folder: &PathBuf) -> io::Result<Vec<PathBuf>> {
     let walker = fs::read_dir(source_folder)?
         .filter_map(|entry| entry.ok())

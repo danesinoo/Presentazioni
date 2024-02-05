@@ -127,24 +127,24 @@ where
                     if self.in_comment {
                         self.write("</section>\n")?;
                     } else {
-                        self.write("<section class=\"comment\"/>\n")?;
+                        self.write("<section class='comment'/>\n")?;
                     }
                     self.in_comment = !self.in_comment;
                 }
                 FootnoteReference(name) => {
                     let len = self.numbers.len() + 1;
-                    self.write("<sup class=\"footnote-reference\"><a href=\"#")?;
+                    self.write("<sup class='footnote-reference'><a href='#")?;
                     escape_html(&mut self.writer, &name)?;
-                    self.write("\">")?;
+                    self.write("'>")?;
                     let number = *self.numbers.entry(name).or_insert(len);
                     write!(&mut self.writer, "{}", number)?;
                     self.write("</a></sup>")?;
                 }
                 TaskListMarker(true) => {
-                    self.write("<input disabled=\"\" type=\"checkbox\" checked=\"\"/>\n")?;
+                    self.write("<input disabled='' type='checkbox' checked=''/>\n")?;
                 }
                 TaskListMarker(false) => {
-                    self.write("<input disabled=\"\" type=\"checkbox\"/>\n")?;
+                    self.write("<input disabled='' type='checkbox'/>\n")?;
                 }
             }
         }
@@ -180,19 +180,19 @@ where
 
                 write!(&mut self.writer, "<{}", level)?;
                 if let Some(id) = id {
-                    self.write(" id=\"")?;
+                    self.write(" id='")?;
                     escape_html(&mut self.writer, id)?;
-                    self.write("\"")?;
+                    self.write("'")?;
                 }
                 let mut classes = classes.iter();
                 if let Some(class) = classes.next() {
-                    self.write(" class=\"")?;
+                    self.write(" class='")?;
                     escape_html(&mut self.writer, class)?;
                     for class in classes {
                         self.write(" ")?;
                         escape_html(&mut self.writer, class)?;
                     }
-                    self.write("\"")?;
+                    self.write("'")?;
                 }
                 self.write(">")
             }
@@ -219,9 +219,9 @@ where
                     }
                 }
                 match self.table_alignments.get(self.table_cell_index) {
-                    Some(&Alignment::Left) => self.write(" style=\"text-align: left\">"),
-                    Some(&Alignment::Center) => self.write(" style=\"text-align: center\">"),
-                    Some(&Alignment::Right) => self.write(" style=\"text-align: right\">"),
+                    Some(&Alignment::Left) => self.write(" style='text-align: left'>"),
+                    Some(&Alignment::Center) => self.write(" style='text-align: center'>"),
+                    Some(&Alignment::Right) => self.write(" style='text-align: right'>"),
                     _ => self.write(">"),
                 }
             }
@@ -242,9 +242,9 @@ where
                         if lang.is_empty() {
                             self.write("<pre><code>")
                         } else {
-                            self.write("<pre><code class=\"language-")?;
+                            self.write("<pre><code class='language-")?;
                             escape_html(&mut self.writer, lang)?;
-                            self.write("\">")
+                            self.write("'>")
                         }
                     }
                     CodeBlockKind::Indented => self.write("<pre><code>"),
@@ -259,12 +259,12 @@ where
             }
             Tag::List(Some(start)) => {
                 if self.end_newline {
-                    self.write("<ol start=\"")?;
+                    self.write("<ol start='")?;
                 } else {
-                    self.write("\n<ol start=\"")?;
+                    self.write("\n<ol start='")?;
                 }
                 write!(&mut self.writer, "{}", start)?;
-                self.write("\">\n")
+                self.write("'>\n")
             }
             Tag::List(None) => {
                 if self.end_newline {
@@ -284,42 +284,42 @@ where
             Tag::Strong => self.write("<strong>"),
             Tag::Strikethrough => self.write("<del>"),
             Tag::Link(LinkType::Email, dest, title) => {
-                self.write("<a href=\"mailto:")?;
+                self.write("<a href='mailto:")?;
                 escape_href(&mut self.writer, &dest)?;
                 if !title.is_empty() {
-                    self.write("\" title=\"")?;
+                    self.write("' title='")?;
                     escape_html(&mut self.writer, &title)?;
                 }
-                self.write("\">")
+                self.write("'>")
             }
             Tag::Link(_link_type, dest, title) => {
-                self.write("<a href=\"")?;
+                self.write("<a href='")?;
                 escape_href(&mut self.writer, &dest)?;
                 if !title.is_empty() {
-                    self.write("\" title=\"")?;
+                    self.write("' title='")?;
                     escape_html(&mut self.writer, &title)?;
                 }
-                self.write("\">")
+                self.write("'>")
             }
             Tag::Image(_link_type, dest, title) => {
-                self.write("<img src=\"")?;
+                self.write("<img src='")?;
                 escape_href(&mut self.writer, &dest)?;
-                self.write("\" alt=\"")?;
+                self.write("' alt='")?;
                 self.raw_text()?;
                 if !title.is_empty() {
-                    self.write("\" title=\"")?;
+                    self.write("' title='")?;
                     escape_html(&mut self.writer, &title)?;
                 }
-                self.write("\" />")
+                self.write("' />")
             }
             Tag::FootnoteDefinition(name) => {
                 if self.end_newline {
-                    self.write("<div class=\"footnote-definition\" id=\"")?;
+                    self.write("<div class='footnote-definition' id='")?;
                 } else {
-                    self.write("\n<div class=\"footnote-definition\" id=\"")?;
+                    self.write("\n<div class='footnote-definition' id='")?;
                 }
                 escape_html(&mut self.writer, &*name)?;
-                self.write("\"><sup class=\"footnote-definition-label\">")?;
+                self.write("'><sup class='footnote-definition-label'>")?;
                 let len = self.numbers.len() + 1;
                 let number = *self.numbers.entry(name).or_insert(len);
                 write!(&mut self.writer, "{}", number)?;
@@ -489,22 +489,46 @@ fn md_content_into_html(md: &str) -> String {
     html_output
 }
 
-const HEAD: &str = "<!DOCTYPE html><html lang=\"it\">
+const HEAD: &str = "<!DOCTYPE html><html lang='it'>
 <head>
-	<meta charset=\"utf-8\" />
-	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<title>{{ TITLE }}</title>
-	<link rel=\"stylesheet\" href=\"assets/main.css\" />
-	<script type=\"module\" src=\"assets/main.js\"></script>
+	<link rel='stylesheet' href='assets/main.css' />
+	<script type='module' src='assets/main.js'></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css' integrity='sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV' crossorigin='anonymous'>
+<script defer src='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js' integrity='sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8' crossorigin='anonymous'></script>
+ <script defer src='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js' integrity='sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05' crossorigin='anonymous'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+              // customised options
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\\\(', right: '\\\\)', display: false},
+                  {left: '\\\\[', right: '\\\\]', display: true},
+                  {left: '\\\\begin{equation}', right: '\\\\end{equation}', display: true},
+                  {left: '\\\\begin{align}', right: '\\\\end{align}', display: true},
+                  {left: '\\\\begin{alignat}', right: '\\\\end{alignat}', display: true},
+                  {left: '\\\\begin{gather}', right: '\\\\end{gather}', display: true},
+                  {left: '\\\\begin{CD}', right: '\\\\end{CD}', display: true},
+                  {left: '\\\\[', right: '\\\\]', display: true}
+              ],
+              throwOnError : false
+            });
+        });
+    </script>
 </head>
+
 <body>
 ";
 
 const FOOT: &str = "
-	<a class=\"clickable-area\" id=\"top\" />
-	<a class=\"clickable-area\" id=\"right\" />
-	<a class=\"clickable-area\" id=\"left\" />
-	<a class=\"clickable-area\" id=\"bottom\" />
+	<a class='clickable-area' id='top' />
+	<a class='clickable-area' id='right' />
+	<a class='clickable-area' id='left' />
+	<a class='clickable-area' id='bottom' />
 </body>
 </html>";
 

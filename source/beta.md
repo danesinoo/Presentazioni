@@ -65,3 +65,8 @@ explanations.
 - my professors program
 
 \import[[inspiration.md]]
+
+# Math formula
+
+Are math formula supported this easily?
+$ f: \mathbb{R} \rightarrow \mathbb{R} $

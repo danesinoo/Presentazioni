@@ -15,8 +15,6 @@ class Comment extends Panel {
 		let comment = Array.from(new_content.children)
 			.find(node => node.tagName === "SECTION")
 
-		console.log(new_content, new_content.children, comment)
-
 		if (!comment) {
 			comment = document.createElement('section')
 		}

@@ -1,15 +1,38 @@
-<!DOCTYPE html><html lang="it">
+<!DOCTYPE html><html lang='it'>
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<title>beta</title>
-	<link rel="stylesheet" href="assets/main.css" />
-	<script type="module" src="assets/main.js"></script>
+	<link rel='stylesheet' href='assets/main.css' />
+	<script type='module' src='assets/main.js'></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css' integrity='sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV' crossorigin='anonymous'>
+<script defer src='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js' integrity='sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8' crossorigin='anonymous'></script>
+ <script defer src='https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js' integrity='sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05' crossorigin='anonymous'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+              // customised options
+              delimiters: [
+                  {left: '$$', right: '$$', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\(', right: '\\)', display: false},
+                  {left: '\\[', right: '\\]', display: true},
+                  {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+                  {left: '\\begin{align}', right: '\\end{align}', display: true},
+                  {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+                  {left: '\\begin{gather}', right: '\\end{gather}', display: true},
+                  {left: '\\begin{CD}', right: '\\end{CD}', display: true},
+                  {left: '\\[', right: '\\]', display: true}
+              ],
+              throwOnError : false
+            });
+        });
+    </script>
 </head>
 <body>
 <div><h1>Presentazioni</h1>
 <p>clicking on &quot;c&quot; make the comment section appear!</p>
-<section class="comment"/>
+<section class='comment'/>
 <h1>Slide navigation:</h1>
 <p>Navigation can occur via the vertical bars or via Vim motions (h, j, k, l).</p>
 </section>
@@ -18,7 +41,7 @@
 <li>.md into .hmtl</li>
 <li>headers (#, ##, ...) into slides</li>
 </ul>
-<section class="comment"/>
+<section class='comment'/>
 <h2>General operation:</h2>
 <p>The program takes as input a folder containing Markdown files and transforms 
 them into HTML pages. Each Markdown section of the header type (indicated by #, 
@@ -40,7 +63,7 @@ JavaScript files to make the HTML pages dynamic as described above.</p>
 <li>title</li>
 <li>content</li>
 </ul>
-<section class="comment"/>
+<section class='comment'/>
 <h2>Slide Structure:</h2>
 <p>Each slide has a predefined space for the title and one for the content.
 The content is resized using CSS scale to fit the dedicated space.
@@ -50,7 +73,7 @@ directions.</p>
 </section>
 </div>
 <div><h2>Comments</h2>
-<section class="comment"/>
+<section class='comment'/>
 <h2>Content/Comments Window:</h2>
 <ul>
 <li>Pressing <code>c</code> toggles the content/comments window.</li>
@@ -66,7 +89,7 @@ explanations.</li>
 <li>I advice to use this to split the presentation and the comments</li>
 <li><code>\import[[path/to/import/file.md]]</code></li>
 </ul>
-<section class="comment"/>
+<section class='comment'/>
 <h2>File Import:</h2>
 <p>Using the command <code>\import[[path/to/import/file.md]]</code>, the text 
 <code>path/to/import/file.md</code> is replaced with the content of the file at the 
@@ -79,7 +102,7 @@ specified path (relative to the input folder).</p>
 <li>obsidian slides</li>
 <li>my professors program</li>
 </ul>
-<section class="comment"/>
+<section class='comment'/>
 <h1>Presentazioni</h1>
 <p>A small program to create attractive presentations starting from a markdown. 
 I believe I need it because I have the impression that it will be necessary 
@@ -96,10 +119,14 @@ things (it seems to me that Obsidian slides also have Vim keybindings, but
 that's not the only thing I took from my teacher's slides).</p>
 </section>
 </div>
+<div><h1>Math formula</h1>
+<p>Are math formula supported this easily?
+$ f: \mathbb{R} \rightarrow \mathbb{R} $</p>
+</div>
 
-	<a class="clickable-area" id="top" />
-	<a class="clickable-area" id="right" />
-	<a class="clickable-area" id="left" />
-	<a class="clickable-area" id="bottom" />
+	<a class='clickable-area' id='top' />
+	<a class='clickable-area' id='right' />
+	<a class='clickable-area' id='left' />
+	<a class='clickable-area' id='bottom' />
 </body>
 </html>
