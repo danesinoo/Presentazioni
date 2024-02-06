@@ -13,11 +13,13 @@ class Comment extends Panel {
 	*/
 	replace(new_content) {
 		let comment = Array.from(new_content.children)
-			.find(node => node.tagName === "SECTION")
-
-		if (!comment) {
-			comment = document.createElement('section')
-		}
+			.filter(node => node.tagName === "SECTION")
+			.reduce((acc, node) => {
+				Array.from(node.children).forEach(child => {
+					acc.appendChild(child.cloneNode(true))
+				})
+				return acc
+			}, document.createElement('section'))
 
 		super.replace(comment)
 	}

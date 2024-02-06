@@ -68,6 +68,10 @@ body {
 	padding: 2em;
 }
 
+#slide img {
+	height: 50px;
+}
+
 #comment {
 	width: 98%;
 	flex: 1;
@@ -114,7 +118,19 @@ body {
 }
 
 #comment code {
-	background-color: rgba(var(--background-color), 0.5);
+    font-family: 'Courier New', Courier, monospace
+    font-size: 0.9em; /* Adjust font size as needed */
+    padding: 0.2em 0.4em; /* Add padding */
+    background-color: var(--clickable-area-color); /* Add background color */
+    color: var(--text-color); /* Add text color */
+    border-radius: 4px; /* Add border radius for rounded corners */
+	line-height: 1.5;
+}
+
+/* Styling for block code */
+pre code {
+    display: block; /* Ensure it's a block element */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
 }
 
 div {
@@ -154,6 +170,12 @@ div {
 	left: 5px;
 	width: var(--decorations-width);
 	height: 80%;
+}
+
+#comment hr, #slide hr {
+    border: none;
+    border-top: 2px solid var(--margin-color); /* Style of the line */
+    margin: 1em 0; /* Padding above and below the line */
 }
 
 .clickable-area:hover {

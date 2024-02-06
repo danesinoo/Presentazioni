@@ -15,11 +15,7 @@ Navigation can occur via the vertical bars or via Vim motions (h, j, k, l).
 - .md into .hmtl
 - headers (#, ##, ...) into slides
 
----
-
-\import[[how_does_it_work.md]]
-
----
+[[how_does_it_work.md]]
 
 ## Slides structure
 
@@ -44,29 +40,31 @@ directions.
 
 ## Content/Comments Window:
 
-- Pressing ``c`` toggles the content/comments window.
+- ``c`` toggles the content/comments window.
 - This section can contain detailed information, references, or additional 
 explanations.
-- Comments start with ``---`` and end with ``---``.
+- Inline comments start with ``---`` and end with ``---``.
 
 ---
 
 ## Import
 
 - you can even import some file
-- I advice to use this to split the presentation and the comments
-- ``\import[[path/to/import/file.md]]``
+- I advice to use this to split the presentation and the comments/documentation
+- ``[[path/to/import/file.md]]``
 
-\import[[import.md]]
+[[import.md]]
 
 # About this program
 
 - obsidian slides
 - my professors program
 
-\import[[inspiration.md]]
+[[inspiration.md]]
 
 # Math formula
 
-Are math formula supported this easily?
-$ f: \mathbb{R} \rightarrow \mathbb{R} $
+Are math formula supported this easily?  
+- inline $ f: \mathbb{R} \rightarrow \mathbb{R} $
+- on a separeta line
+$$ f: \mathbb{R} \rightarrow \mathbb{R} $$

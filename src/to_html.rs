@@ -472,7 +472,7 @@ where
 }
 
 /// Convert the content of a markdown string to an HTML string.
-fn md_content_into_html(md: &str) -> String {
+pub fn md_content_into_slides(md: &str) -> String {
     let mut options = Options::empty();
     options.insert(Options::ENABLE_STRIKETHROUGH);
     options.insert(Options::ENABLE_TABLES);
@@ -532,8 +532,20 @@ const FOOT: &str = "
 </body>
 </html>";
 
-pub fn to_html(md: &mut str) -> String {
-    let mut html = md_content_into_html(md);
+pub fn to_html(md: &str) -> String {
+    let mut html = md_content_into_slides(md);
     html = HEAD.to_string() + &html + FOOT;
     html
+}
+
+pub fn md_content_into_html(md: &str) -> String {
+    let mut options = Options::empty();
+    options.insert(Options::ENABLE_STRIKETHROUGH);
+    options.insert(Options::ENABLE_TABLES);
+    options.insert(Options::ENABLE_FOOTNOTES);
+    options.insert(Options::ENABLE_TASKLISTS);
+    let parser = Parser::new_ext(md, options);
+    let mut html_output = String::new();
+    pulldown_cmark::html::push_html(&mut html_output, parser);
+    html_output
 }

@@ -7,9 +7,27 @@ each header constitutes the content of the slide.
 
 ## Program Startup:
 The program starts by executing its executable followed by two flags:
-- ``-s path/to/source/directory`` specifies the input folder.
-- o ``path/to/output/directory`` specifies the output folder.
+- ``-s path/to/source/file.md`` specifies the input markdown.
+- ``-o path/to/output/directory`` specifies the output folder.
 
-## Tip:
-It is advisable to copy the "assets" folder containing the necessary CSS and 
-JavaScript files to make the HTML pages dynamic as described above.
+---
+
+Just in case: you can run a rust program as this one with:
+```bash
+cargo run # compiles and run
+cargo run -- -s path/to/source_file.md -o output/dir # for this specific program
+```
+
+or else
+
+```bash
+cargo build # compiles
+./target/debug/Presentazioni -s path/to/source_file.md -o output/dir # run
+```
+
+or else, if you want to build a more optimized version:
+
+```bash
+cargo build --release
+./target/release/Presentaizoni -s path/to/source_file.md -o output/dir
+```
